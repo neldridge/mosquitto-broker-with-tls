@@ -1,0 +1,15 @@
+version: '2'
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2-openssl
+    volumes:
+      - ./config/:/mosquitto/config/
+      - ./certs/:/mosquitto/certs/
+      - ./log/:/mosquitto/log/
+      - mosquitto_data:/mosquitto/data/
+    ports:
+      - 8883:8883
+      - 9001:9001
+
+volumes:
+  mosquitto_data: ~
